@@ -48,17 +48,6 @@ const deleteRole = async (roleId) => {
   return await Role.findByIdAndDelete(roleId);
 };
 
-// Get access matrix (all roles with their permissions)
-const getAccessMatrix = async () => {
-  const roles = await Role.find().select('name description permissions isDefault');
-  return roles.map(role => ({
-    role: role.name,
-    description: role.description,
-    permissions: role.permissions,
-    isDefault: role.isDefault,
-  }));
-};
-
 module.exports = {
   getAllRoles,
   getRoleById,
@@ -66,5 +55,4 @@ module.exports = {
   createRole,
   updateRole,
   deleteRole,
-  getAccessMatrix,
 };

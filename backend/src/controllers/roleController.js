@@ -147,28 +147,10 @@ const deleteRole = async (req, res) => {
   }
 };
 
-// Get access matrix
-const getAccessMatrix = async (req, res) => {
-  try {
-    const accessMatrix = await roleService.getAccessMatrix();
-    res.json({
-      success: true,
-      data: { accessMatrix },
-    });
-  } catch (error) {
-    res.status(500).json({
-      success: false,
-      message: 'Failed to fetch access matrix',
-      error: error.message,
-    });
-  }
-};
-
 module.exports = {
   getAllRoles,
   getRoleById,
   createRole,
   updateRole,
   deleteRole,
-  getAccessMatrix,
 };

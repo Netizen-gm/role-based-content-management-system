@@ -34,9 +34,6 @@ const roleValidation = [
 // All routes require authentication
 router.use(authenticate);
 
-// Get access matrix (all roles can view)
-router.get('/access-matrix', roleController.getAccessMatrix);
-
 // Get all roles (all authenticated users can view)
 router.get('/', roleController.getAllRoles);
 
